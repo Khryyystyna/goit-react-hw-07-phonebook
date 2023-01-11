@@ -2,7 +2,7 @@ import css from './Form.module.css'
 import React from "react";
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contacts';
+import { addContacts } from 'redux/operations';
 import { selectContacts } from 'redux/selectors';
 
 export const Form = () => {
@@ -41,7 +41,7 @@ export const Form = () => {
       alert ('This number is already exist')
       return;
     }
-    dispatch(addContact(name, number));
+    dispatch(addContacts(name, number));
     reset();
   };
 
