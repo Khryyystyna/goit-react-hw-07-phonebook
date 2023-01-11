@@ -5,7 +5,7 @@ import { Filter } from "./Filter/Filter";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from "redux/operations";
-import { selectContacts, selectIsLoading, selectError } from 'redux/selectors';
+import { selectIsLoading, selectError } from 'redux/selectors';
 
 export const App = () => {
   const dispatch = useDispatch();
