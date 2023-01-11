@@ -1,11 +1,11 @@
 import css from './Filtter.module.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { getFilter } from 'redux/selectors';
+import { selectFilter } from 'redux/selectors';
 import { setFilter } from 'redux/filter';
 
 
 export const Filter = () => {
-    const filter = useSelector(getFilter);
+    const filter = useSelector(selectFilter);
     const dispatch = useDispatch();
     return (
         <>
