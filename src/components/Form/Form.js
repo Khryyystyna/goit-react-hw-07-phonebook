@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContacts } from 'redux/operations';
 import { selectContacts } from 'redux/selectors';
+import { nanoid } from 'nanoid'
 
 export const Form = () => {
   const dispatch = useDispatch();
@@ -13,8 +14,8 @@ export const Form = () => {
   const [number, setNumber] = useState('');
 
 
-  const handleChange = evt => {
-    const { name, value } = evt.currentTarget;
+  const handleChange = e => {
+    const { name, value } = e.currentTarget;
     switch (name) {
       case 'name':
         setName(value);
@@ -29,7 +30,7 @@ export const Form = () => {
   
   const handleSubmit = e => {
     e.preventDefault();
-    const existingName = contacts.some(
+     const existingName = contacts.some(
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
     const existingNumber = contacts.some(contact => contact.number === number);
@@ -40,10 +41,24 @@ export const Form = () => {
     } else if (existingNumber) {
       alert ('This number is already exist')
       return;
+    } else {
+   dispatch(addContacts({ id: nanoid(), name, number }));
     }
-    dispatch(addContacts(name, number));
     reset();
   };
+
+  //  const handleSubmit = (values, { resetForm }) => {
+  //   const contactName = values.name.toLowerCase();
+  //   const isSaved = contacts.find(
+  //     contact => contact.name.toLowerCase() === contactName
+  //   );
+  //   if (isSaved) {
+  //     alert(`${values.name} is already in contacts`);
+  //   } else {
+  //     dispatch(addContacts(values));
+  //   }
+  //   resetForm();
+  // };
 
   const reset = () => {
    setName('');

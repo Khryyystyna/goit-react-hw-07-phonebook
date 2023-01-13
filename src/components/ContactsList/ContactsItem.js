@@ -8,11 +8,11 @@ export const ContactsItem = ({ id}) => {
     const dispatch = useDispatch();
     const handleDelete = () => dispatch(deleteContacts(id));
 
-    const contacts = useSelector(selectVisibleContacts);
+    const contactsView = useSelector(selectVisibleContacts);
 
     return (
         <>
-            {contacts.map(({ id, name, number }) => (
+            {contactsView.map(({ id, name, number }) => (
                 <li key={id} className={css.item}>
                     {name}:{number}
                     <button className={css.btn} type='submit'
