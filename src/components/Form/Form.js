@@ -47,18 +47,6 @@ export const Form = () => {
     reset();
   };
 
-  //  const handleSubmit = (values, { resetForm }) => {
-  //   const contactName = values.name.toLowerCase();
-  //   const isSaved = contacts.find(
-  //     contact => contact.name.toLowerCase() === contactName
-  //   );
-  //   if (isSaved) {
-  //     alert(`${values.name} is already in contacts`);
-  //   } else {
-  //     dispatch(addContacts(values));
-  //   }
-  //   resetForm();
-  // };
 
   const reset = () => {
    setName('');

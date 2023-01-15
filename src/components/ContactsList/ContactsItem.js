@@ -4,12 +4,13 @@ import { deleteContacts } from 'redux/operations';
 import { useSelector } from 'react-redux';
 import { selectVisibleContacts } from 'redux/selectors';
 
-export const ContactsItem = ({ id}) => {
+export const ContactsItem = ({id}) => {
     const dispatch = useDispatch();
-    const handleDelete = () => dispatch(deleteContacts(id));
+    const handleDelete = id => dispatch(deleteContacts(id));
 
-    const contactsView = useSelector(selectVisibleContacts);
 
+    const contactsView = useSelector(selectVisibleContacts)
+  
     return (
         <>
             {contactsView.map(({ id, name, number }) => (
