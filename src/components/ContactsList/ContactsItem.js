@@ -17,7 +17,7 @@ export const ContactsItem = ({id}) => {
                 <li key={id} className={css.item}>
                     {name}:{number}
                     <button className={css.btn} type='submit'
-                    onClick={handleDelete}>Delete</button>
+                onClick={()=>handleDelete(id)}>Delete</button>
                 </li>
             ))}
             </>
